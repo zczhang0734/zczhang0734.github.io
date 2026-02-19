@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zhicong Zhang</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --primary: #1a1a2e;
+      --accent: #4a90d9;
+      --light: #f8f9fa;
+      --text: #333;
+      --muted: #666;
+      --border: #e0e0e0;
+    }
+
+    body {
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      color: var(--text);
+      background: #fff;
+      line-height: 1.7;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: var(--primary);
+      display: flex; justify-content: center; gap: 2rem;
+      padding: 0.9rem 2rem;
+    }
+    nav a {
+      color: #cdd6e8; text-decoration: none;
+      font-size: 0.9rem; letter-spacing: 0.05em; text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    nav a:hover { color: #fff; }
+
+    /* ── HERO ── */
+    #hero {
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 60%, #0f3460 100%);
+      color: #fff;
+      padding: 80px 2rem 70px;
+      display: flex; justify-content: center;
+    }
+    .hero-inner {
+      max-width: 900px; width: 100%;
+      display: flex; align-items: center; gap: 3.5rem;
+      flex-wrap: wrap;
+    }
+    .hero-photo {
+      width: 180px; height: 180px;
+      border-radius: 50%;
+      object-fit: cover; object-position: center top;
+      border: 4px solid var(--accent);
+      flex-shrink: 0;
+      box-shadow: 0 8px 32px rgba(74,144,217,0.3);
+    }
+    .hero-text h1 {
+      font-size: 2.4rem; font-weight: 700;
+      margin-bottom: 0.3rem;
+    }
+    .hero-text .subtitle {
+      font-size: 1.05rem; color: #a8c4e8;
+      margin-bottom: 1rem;
+    }
+    .hero-text .bio {
+      font-size: 0.97rem; color: #cdd6e8;
+      max-width: 520px;
+      margin-bottom: 1.2rem;
+    }
+    .contact-links { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .contact-links a {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      background: rgba(255,255,255,0.1);
+      color: #cdd6e8; text-decoration: none;
+      padding: 0.4rem 0.9rem; border-radius: 20px;
+      font-size: 0.88rem; transition: background 0.2s;
+    }
+    .contact-links a:hover { background: rgba(255,255,255,0.2); color: #fff; }
+
+    /* ── SECTIONS ── */
+    section { padding: 60px 2rem; }
+    section:nth-child(even) { background: var(--light); }
+    .container { max-width: 900px; margin: 0 auto; }
+
+    h2 {
+      font-size: 1.6rem; color: var(--primary);
+      margin-bottom: 1.6rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 3px solid var(--accent);
+      display: inline-block;
+    }
+
+    /* ── EDUCATION ── */
+    .edu-item { margin-bottom: 1.4rem; }
+    .edu-item h3 { font-size: 1.05rem; color: var(--primary); }
+    .edu-item .degree { color: var(--accent); font-weight: 600; }
+    .edu-item .meta { color: var(--muted); font-size: 0.9rem; margin-top: 0.2rem; }
+    .badge {
+      display: inline-block;
+      background: #e8f4ff; color: var(--accent);
+      border-radius: 12px; padding: 0.15rem 0.7rem;
+      font-size: 0.8rem; margin-top: 0.4rem; margin-right: 0.3rem;
+    }
+
+    /* ── RESEARCH ── */
+    .research-item {
+      border-left: 3px solid var(--accent);
+      padding-left: 1.2rem;
+      margin-bottom: 2rem;
+    }
+    .research-item h3 { font-size: 1.05rem; margin-bottom: 0.25rem; }
+    .research-item .mentor { color: var(--accent); font-size: 0.9rem; margin-bottom: 0.5rem; }
+    .research-item ul { padding-left: 1.2rem; }
+    .research-item li { font-size: 0.93rem; margin-bottom: 0.3rem; }
+
+    /* ── PUBLICATIONS ── */
+    .pub-item {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1rem 1.2rem;
+      margin-bottom: 1rem;
+      font-size: 0.93rem;
+    }
+    .pub-item .venue {
+      display: inline-block;
+      background: var(--accent); color: #fff;
+      border-radius: 4px; padding: 0.1rem 0.55rem;
+      font-size: 0.78rem; font-weight: 600;
+      margin-bottom: 0.4rem;
+    }
+
+    /* ── SKILLS ── */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 1rem;
+    }
+    .skill-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1rem 1.2rem;
+    }
+    .skill-card h4 {
+      font-size: 0.85rem; text-transform: uppercase;
+      letter-spacing: 0.05em; color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+    .skill-card p { font-size: 0.9rem; color: var(--text); }
+
+    /* ── ACTIVITIES ── */
+    .activity-item { margin-bottom: 1.4rem; }
+    .activity-item h3 { font-size: 1rem; color: var(--primary); margin-bottom: 0.3rem; }
+    .activity-item ul { padding-left: 1.2rem; }
+    .activity-item li { font-size: 0.93rem; margin-bottom: 0.2rem; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--primary); color: #8899bb;
+      text-align: center; padding: 1.5rem;
+      font-size: 0.85rem;
+    }
+
+    @media (max-width: 600px) {
+      .hero-inner { flex-direction: column; align-items: center; text-align: center; }
+      .contact-links { justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#about">About</a>
+  <a href="#education">Education</a>
+  <a href="#research">Research</a>
+  <a href="#publications">Publications</a>
+  <a href="#skills">Skills</a>
+  <a href="#activities">Activities</a>
+</nav>
+
+<!-- HERO -->
+<section id="about" style="padding:0; background: linear-gradient(135deg,#1a1a2e,#0f3460);">
+  <div id="hero">
+    <div class="hero-inner">
+      <img
+        class="hero-photo"
+        src="Weixin%20Image_20260219044449_4_27.jpg"
+        alt="Zhicong Zhang"
+      />
+      <div class="hero-text">
+        <h1>Zhicong Zhang</h1>
+        <p class="subtitle">M.S. Mechanical Engineering &nbsp;·&nbsp; Stanford University</p>
+        <p class="bio">
+          I am a mechanical engineering graduate student at Stanford University with a strong
+          background in robotics, embedded systems, and biomedical signal processing. My research
+          spans humanoid robot hardware design, autonomous control systems, and wearable sensing.
+          I am passionate about bridging mechanical design, electronics, and machine learning to
+          build real-world robotic systems.
+        </p>
+        <div class="contact-links">
+          <a href="mailto:zhicong5@stanford.edu">✉ zhicong5@stanford.edu</a>
+          <a href="tel:6502484044">📞 (650) 248-4044</a>
+          <a href="Chris's%20CV.pdf" target="_blank">📄 CV / Résumé</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="container">
+    <h2>Education</h2>
+
+    <div class="edu-item">
+      <h3>Stanford University</h3>
+      <div class="degree">Master of Science in Mechanical Engineering</div>
+      <div class="meta">GPA: 3.85 / 4.00</div>
+    </div>
+
+    <div class="edu-item">
+      <h3>Zhejiang University – University of Illinois Urbana-Champaign Institute</h3>
+      <div class="degree">Bachelor of Science in Mechanical Engineering</div>
+      <div class="meta">GPA: 3.95 / 4.00 &nbsp;·&nbsp; Rank: 1 / 43</div>
+      <div>
+        <span class="badge">National Scholarship</span>
+        <span class="badge">Merit Scholarship</span>
+        <span class="badge">Elite Student</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESEARCH -->
+<section id="research">
+  <div class="container">
+    <h2>Research Experience</h2>
+
+    <div class="research-item">
+      <h3>ToddlerBot Project — Stanford TML Lab &amp; REAL Lab</h3>
+      <div class="mentor">
+        Mentors: Prof. Karen Liu (TML Lab) · Prof. Shuran Song (REAL Lab) · Haochen Shi · Weizhuo Wang
+      </div>
+      <ul>
+        <li>Contributed to full-stack development of ToddlerBot v1.0–3.0 covering mechanical design,
+            electrical integration, sensing, embedded control, and system-level optimization.</li>
+        <li><strong>v1.0→2.0:</strong> Redesigned structural components across torso, pelvis, arms, and
+            legs; streamlined CAD and assembly workflows; strengthened sensing and control pipelines for
+            stable locomotion. Contributed to the <em>Locomotion Beyond Feet</em> project.</li>
+        <li><strong>v3.0:</strong> Led development of a novel Autonomous Charging System, redesigning
+            the power architecture, creating custom DC-DC and protection modules, and designing a
+            magnetic charging interface. Developed the navigation and docking control policy.</li>
+      </ul>
+    </div>
+
+    <div class="research-item">
+      <h3>State Anxiety &amp; Stress Detection Using Multimodal Wearables — UIUC</h3>
+      <div class="mentor">
+        Mentors: Prof. Manuel Enrique Hernandez · Maxine He, Ph.D (Human Dynamics and Controls Lab)
+      </div>
+      <ul>
+        <li>Collected human EEG and ECG signals in controlled experimental settings.</li>
+        <li>Preprocessed data in MATLAB and Python: filtering, artifact removal, segmentation.</li>
+        <li>Performed HRV analysis using Kubios and organized extracted features into a structured
+            dataset for machine learning.</li>
+        <li>Co-authored a conference abstract presented at the Society for Psychophysiological Study
+            Annual Meeting 2023.</li>
+      </ul>
+    </div>
+
+    <div class="research-item">
+      <h3>Exploring Skin Potential Signals in Electrodermal Activity — Zhejiang University</h3>
+      <div class="mentor">
+        Mentor: Prof. Yubo Li (ZJU Electronix &amp; Mechanix Engineering Lab)
+      </div>
+      <ul>
+        <li>Collected fasciocutaneous electrical signals from human participants and small white mice.</li>
+        <li>Built MATLAB pipelines for integration, classification, normalization, and big-data handling
+            of experimental datasets.</li>
+        <li>Extracted time-domain, frequency-domain, and nonlinear features (FFT, 1D wavelet analysis,
+            wavelet packet decomposition).</li>
+        <li>Applied machine learning to explore fascial signal–concentration relationships; published
+            findings in <em>IEEE Access</em> (2024).</li>
+      </ul>
+    </div>
+
+    <div class="research-item">
+      <h3>Internship — YunshenTech</h3>
+      <div class="mentor">Industry Robotics</div>
+      <ul>
+        <li>Tuned and evaluated the Model Predictive Control (MPC) framework on Shadow-3 quadruped robot.</li>
+        <li>Designed a LiDAR camera mount for the Shadow-3 quadruped robot.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- PUBLICATIONS -->
+<section id="publications">
+  <div class="container">
+    <h2>Publications</h2>
+
+    <div class="pub-item">
+      <span class="venue">ICRA 2026 (Submitted)</span>
+      <p>T. H. Yang, J. Hu, H. Shi*, <strong>Z. Zhang</strong>, D. Jiang, W. Wang, Y. He, Z. Wu,
+         Y. Hou, M. Kennedy, S. Song, K. Liu.
+         "Locomotion Beyond Feet."</p>
+    </div>
+
+    <div class="pub-item">
+      <span class="venue">IEEE Access 2024</span>
+      <p>Yiyang Huang, <strong>Zhicong Zhang</strong>, Yanbin Yang, Pu-Chun Mo, Zhenghao Zhang,
+         Jiadong He, Shaohua Hu, Xiaozhi Wang, Yubo Li.
+         "Exploring Skin Potential Signals in Electrodermal Activity: Identifying Key Features
+         for Attention State Differentiation."
+         DOI: <a href="https://doi.org/10.1109/ACCESS.2024.3406932" target="_blank">10.1109/ACCESS.2024.3406932</a></p>
+    </div>
+
+    <div class="pub-item">
+      <span class="venue">SPS 2023</span>
+      <p>He, M., Cerna, J., Huang, Y., <strong>Zhang, Z.</strong>, Wu, C., Hsiao-Wecksler, E.T.,
+         Hernandez, M.E.
+         "An Examination of EEG-ECG Coupling Under Stressful and Non-stressful Conditions."
+         Society for Psychophysiological Study Annual Meeting, New Orleans, LA. Sep 27 – Oct 1, 2023.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="container">
+    <h2>Skills</h2>
+    <div class="skills-grid">
+      <div class="skill-card">
+        <h4>CAD</h4>
+        <p>SolidWorks, CREO, Onshape</p>
+      </div>
+      <div class="skill-card">
+        <h4>Programming</h4>
+        <p>Python, C++, ROS2, MATLAB</p>
+      </div>
+      <div class="skill-card">
+        <h4>PCB Design</h4>
+        <p>KiCad, Eagle</p>
+      </div>
+      <div class="skill-card">
+        <h4>Control</h4>
+        <p>FK/IK, PID, Linear MPC, RL (PPO), System Identification</p>
+      </div>
+      <div class="skill-card">
+        <h4>Perception</h4>
+        <p>State Estimation, Classical CV, Deep Learning Vision, Basic SLAM</p>
+      </div>
+      <div class="skill-card">
+        <h4>Planning &amp; Learning</h4>
+        <p>A*, RRT, Frontier Exploration, Deep Learning, RL, Imitation Learning</p>
+      </div>
+      <div class="skill-card">
+        <h4>Hardware</h4>
+        <p>IMU, Dynamixel Servo, Embedded Systems &amp; Sensors</p>
+      </div>
+      <div class="skill-card">
+        <h4>Courses</h4>
+        <p>CS229 ML, CS224R DRL, AA274 Robot Autonomy, AA273 State Estimation, EE227 Robot Perception</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ACTIVITIES -->
+<section id="activities">
+  <div class="container">
+    <h2>Extracurricular Activities</h2>
+
+    <div class="activity-item">
+      <h3>International Concrete Dragon Boat Race — First Prize</h3>
+      <ul>
+        <li>Designed the boat structure using SolidWorks.</li>
+        <li>Built the motor control and electronic system using STM32.</li>
+        <li>Performed hydrodynamic simulation in SolidWorks.</li>
+      </ul>
+    </div>
+
+    <div class="activity-item">
+      <h3>Self-Built VORON 2.4 3D Printer</h3>
+      <ul>
+        <li>Set up control circuits using Raspberry Pi 3.</li>
+        <li>Designed and completed the full printer circuit.</li>
+        <li>Designed PCB boards using Eagle.</li>
+      </ul>
+    </div>
+
+    <div class="activity-item">
+      <h3>RoboMaster Robot Competition (DJI)</h3>
+      <ul>
+        <li>Built competition robots using CNC, 3D printing, and casting.</li>
+        <li>Deployed MPC-based motion algorithms on STM32; improved shooting with CNN-based vision.</li>
+        <li>Competed in the national RoboMaster competition organized by DJI.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2025 Zhicong Zhang · Stanford University · zhicong5@stanford.edu</p>
+</footer>
+
+</body>
+</html>
