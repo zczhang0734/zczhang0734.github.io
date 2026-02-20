@@ -115,6 +115,11 @@
     .research-item .mentor { color: var(--accent); font-size: 0.9rem; margin-bottom: 0.5rem; }
     .research-item ul { padding-left: 1.2rem; }
     .research-item li { font-size: 0.93rem; margin-bottom: 0.3rem; }
+    .research-item video {
+      width: 100%; max-width: 560px;
+      border-radius: 8px; margin-top: 0.8rem;
+      border: 1px solid var(--border);
+    }
 
     /* ── PUBLICATIONS ── */
     .pub-item {
@@ -241,6 +246,29 @@
 <section id="research">
   <div class="container">
     <h2>Research Experience</h2>
+
+    <div class="research-item">
+      <h3>
+        <a href="https://toddlerbot.github.io/" target="_blank" style="color:inherit; text-decoration:none; border-bottom: 1px dashed var(--accent);">
+          ToddlerBot 3.0
+        </a>
+        — Stanford TML Lab &amp; REAL Lab
+      </h3>
+      <div class="mentor">
+        Mentors: Prof. Karen Liu (TML Lab) · Prof. Shuran Song (REAL Lab) · Haochen Shi · Weizhuo Wang
+      </div>
+      <ul>
+        <li>Leading the design and development of the autonomous charging system for ToddlerBot 3.0, enabling 24-hour uninterrupted operation and continuous real-world data collection.</li>
+        <li>Designed magnetic docking hardware for reliable, repeatable alignment between the robot and charging station.</li>
+        <li>Integrated power management electronics to support safe, automated charge cycling.</li>
+        <li>Built the perception–control pipeline for self-charging: the robot autonomously detects the dock, navigates to it, and initiates charging without human intervention.</li>
+        <li>This capability is a key step toward safe, long-horizon real-world learning — allowing the robot to collect large-scale interaction data autonomously over extended periods.</li>
+      </ul>
+      <video controls muted playsinline preload="metadata">
+        <source src="Autocharging.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+    </div>
 
     <div class="research-item">
       <h3>
