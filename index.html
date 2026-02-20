@@ -107,19 +107,29 @@
 
     /* ── RESEARCH ── */
     .research-item {
-      border-left: 3px solid var(--accent);
-      padding-left: 1.2rem;
+      display: flex;
+      gap: 1.5rem;
       margin-bottom: 2rem;
     }
-    .research-item h3 { font-size: 1.05rem; margin-bottom: 0.25rem; }
-    .research-item .mentor { color: var(--accent); font-size: 0.9rem; margin-bottom: 0.5rem; }
-    .research-item ul { padding-left: 1.2rem; }
-    .research-item li { font-size: 0.93rem; margin-bottom: 0.3rem; }
-    .research-item video {
-      width: 100%; max-width: 380px;
-      border-radius: 8px; margin-top: 0.8rem;
+    .research-media {
+      flex-shrink: 0;
+      width: 280px;
+    }
+    .research-media video,
+    .research-media img {
+      width: 100%;
+      border-radius: 8px;
       border: 1px solid var(--border);
     }
+    .research-content {
+      flex: 1;
+      border-left: 3px solid var(--accent);
+      padding-left: 1.2rem;
+    }
+    .research-content h3 { font-size: 1.05rem; margin-bottom: 0.25rem; }
+    .research-content .mentor { color: var(--accent); font-size: 0.9rem; margin-bottom: 0.5rem; }
+    .research-content ul { padding-left: 1.2rem; }
+    .research-content li { font-size: 0.93rem; margin-bottom: 0.3rem; }
 
     /* ── PUBLICATIONS ── */
     .pub-item {
@@ -173,6 +183,8 @@
     @media (max-width: 600px) {
       .hero-inner { flex-direction: column; align-items: center; text-align: center; }
       .contact-links { justify-content: center; }
+      .research-item { flex-direction: column; }
+      .research-media { width: 100%; max-width: 280px; }
     }
   </style>
 </head>
@@ -247,76 +259,88 @@
     <h2>Research Experience</h2>
 
     <div class="research-item">
-      <h3>
-        <a href="https://toddlerbot.github.io/" target="_blank" style="color:inherit; text-decoration:none; border-bottom: 1px dashed var(--accent);">
-          ToddlerBot 3.0
-        </a>
-        — Stanford <a href="https://stanford-tml.github.io/main/" target="_blank" style="color:inherit;">TML Lab</a> &amp; <a href="https://src.stanford.edu/labs/real-lab-z47mn" target="_blank" style="color:inherit;">REAL Lab</a>
-      </h3>
-      <div class="mentor">
-        Mentors: <a href="https://tml.stanford.edu/people/karen-liu" target="_blank">Prof. Karen Liu</a> (TML Lab) · <a href="https://profiles.stanford.edu/shuran-song" target="_blank">Prof. Shuran Song</a> (REAL Lab) · <a href="https://hshi74.github.io/" target="_blank">Haochen Shi, Ph.D</a> · <a href="https://me.weizhuowang.com/about/" target="_blank">Weizhuo Wang, Ph.D</a>
+      <div class="research-media">
+        <video autoplay loop muted playsinline>
+          <source src="charging.mp4" type="video/mp4" />
+        </video>
       </div>
-      <ul>
-        <li>Leading the design and development of the autonomous charging system for ToddlerBot 3.0, enabling 24-hour uninterrupted operation and continuous real-world data collection.</li>
-        <li>Modified the <a href="https://github.com/AlexanderKoch-Koch/low_cost_robot" target="_blank">low_cost_robot</a> arm as the charging robotic arm with magnetic docking hardware for reliable, repeatable alignment between the robot and charging station.</li>
-        <li>Iterated and upgraded ToddlerBot's internal circuitry, designing a custom auto-charging circuit from scratch.</li>
-        <li>Built the perception–control pipeline for self-charging: the robot autonomously detects the dock, navigates to it, and initiates charging without human intervention.</li>
-        <li>This capability is a key step toward safe, long-horizon real-world learning — allowing the robot to collect large-scale interaction data autonomously over extended periods.</li>
-      </ul>
-      <video controls muted playsinline preload="metadata">
-        <source src="charging.mp4" type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
+      <div class="research-content">
+        <h3>
+          <a href="https://toddlerbot.github.io/" target="_blank" style="color:inherit; text-decoration:none; border-bottom: 1px dashed var(--accent);">
+            ToddlerBot 3.0
+          </a>
+          — Stanford <a href="https://stanford-tml.github.io/main/" target="_blank" style="color:inherit;">TML Lab</a> &amp; <a href="https://src.stanford.edu/labs/real-lab-z47mn" target="_blank" style="color:inherit;">REAL Lab</a>
+        </h3>
+        <div class="mentor">
+          Mentors: <a href="https://tml.stanford.edu/people/karen-liu" target="_blank">Prof. Karen Liu</a> (TML Lab) · <a href="https://profiles.stanford.edu/shuran-song" target="_blank">Prof. Shuran Song</a> (REAL Lab) · <a href="https://hshi74.github.io/" target="_blank">Haochen Shi, Ph.D</a> · <a href="https://me.weizhuowang.com/about/" target="_blank">Weizhuo Wang, Ph.D</a>
+        </div>
+        <ul>
+          <li>Leading the design and development of the autonomous charging system for ToddlerBot 3.0, enabling 24-hour uninterrupted operation and continuous real-world data collection.</li>
+          <li>Modified the <a href="https://github.com/AlexanderKoch-Koch/low_cost_robot" target="_blank">low_cost_robot</a> arm as the charging robotic arm with magnetic docking hardware for reliable, repeatable alignment between the robot and charging station.</li>
+          <li>Iterated and upgraded ToddlerBot's internal circuitry, designing a custom auto-charging circuit from scratch.</li>
+          <li>Built the perception–control pipeline for self-charging: the robot autonomously detects the dock, navigates to it, and initiates charging without human intervention.</li>
+          <li>This capability is a key step toward safe, long-horizon real-world learning — allowing the robot to collect large-scale interaction data autonomously over extended periods.</li>
+        </ul>
+      </div>
     </div>
 
     <div class="research-item">
-      <h3>
-        <a href="https://toddlerbot.github.io/" target="_blank" style="color:inherit; text-decoration:none; border-bottom: 1px dashed var(--accent);">
-          ToddlerBot 2.0
-        </a>
-        — Stanford <a href="https://stanford-tml.github.io/main/" target="_blank" style="color:inherit;">TML Lab</a> &amp; <a href="https://src.stanford.edu/labs/real-lab-z47mn" target="_blank" style="color:inherit;">REAL Lab</a>
-      </h3>
-      <div class="mentor">
-        Mentors: <a href="https://tml.stanford.edu/people/karen-liu" target="_blank">Prof. Karen Liu</a> (TML Lab) · <a href="https://profiles.stanford.edu/shuran-song" target="_blank">Prof. Shuran Song</a> (REAL Lab) · <a href="https://hshi74.github.io/" target="_blank">Haochen Shi, Ph.D</a> · <a href="https://me.weizhuowang.com/about/" target="_blank">Weizhuo Wang, Ph.D</a>
+      <div class="research-media">
+        <img src="banner.png" alt="ToddlerBot 2.0 fleet — Toddy, Arya, Blake" />
       </div>
-      <ul>
-        <li>Contributed to hardware and system-level improvements taking ToddlerBot from v1.0 to v2.0 — a 30-DoF full-size humanoid with 7-DoF arms, 6-DoF legs, a 2-DoF waist, and dual end-effectors.</li>
-        <li>Redesigned structural components across the torso, pelvis, arms, and legs to improve overall robustness and repairability; the platform now sustains 7 falls with a 35-minute repair turnaround.</li>
-        <li>Streamlined CAD architecture and assembly workflows, reducing integration complexity across the full mechanical stack.</li>
-        <li>Strengthened sensing and control pipelines enabling stable locomotion at 0.25 m/s walking speed and 1 rad/s turning rate, as well as dynamic skills including crawling and acrobatic motions.</li>
-        <li>Contributed to the <em>Locomotion Beyond Feet</em> project, expanding the robot's movement repertoire beyond traditional bipedal walking.</li>
-      </ul>
+      <div class="research-content">
+        <h3>
+          <a href="https://toddlerbot.github.io/" target="_blank" style="color:inherit; text-decoration:none; border-bottom: 1px dashed var(--accent);">
+            ToddlerBot 2.0
+          </a>
+          — Stanford <a href="https://stanford-tml.github.io/main/" target="_blank" style="color:inherit;">TML Lab</a> &amp; <a href="https://src.stanford.edu/labs/real-lab-z47mn" target="_blank" style="color:inherit;">REAL Lab</a>
+        </h3>
+        <div class="mentor">
+          Mentors: <a href="https://tml.stanford.edu/people/karen-liu" target="_blank">Prof. Karen Liu</a> (TML Lab) · <a href="https://profiles.stanford.edu/shuran-song" target="_blank">Prof. Shuran Song</a> (REAL Lab) · <a href="https://hshi74.github.io/" target="_blank">Haochen Shi, Ph.D</a> · <a href="https://me.weizhuowang.com/about/" target="_blank">Weizhuo Wang, Ph.D</a>
+        </div>
+        <ul>
+          <li>Contributed to hardware and system-level improvements taking ToddlerBot from v1.0 to v2.0 — a 30-DoF full-size humanoid with 7-DoF arms, 6-DoF legs, a 2-DoF waist, and dual end-effectors.</li>
+          <li>Redesigned structural components across the torso, pelvis, arms, and legs to improve overall robustness and repairability; the platform now sustains 7 falls with a 35-minute repair turnaround.</li>
+          <li>Streamlined CAD architecture and assembly workflows, reducing integration complexity across the full mechanical stack.</li>
+          <li>Strengthened sensing and control pipelines enabling stable locomotion at 0.25 m/s walking speed and 1 rad/s turning rate, as well as dynamic skills including crawling and acrobatic motions.</li>
+          <li>Contributed to the <em>Locomotion Beyond Feet</em> project, expanding the robot's movement repertoire beyond traditional bipedal walking.</li>
+        </ul>
+      </div>
     </div>
 
     <div class="research-item">
-      <h3>State Anxiety &amp; Stress Detection Using Multimodal Wearables — UIUC</h3>
-      <div class="mentor">
-        Mentors: <a href="https://medicine.illinois.edu/about/directory/faculty/profile/mhernand" target="_blank">Prof. Manuel Enrique Hernandez</a> · <a href="https://www.maxinehe.com/" target="_blank">Maxine He, Ph.D</a> (<a href="https://publish.illinois.edu/human-dynamics-and-controls-lab/" target="_blank">Human Dynamics and Controls Lab</a>)
+      <div class="research-content">
+        <h3>State Anxiety &amp; Stress Detection Using Multimodal Wearables — UIUC</h3>
+        <div class="mentor">
+          Mentors: <a href="https://medicine.illinois.edu/about/directory/faculty/profile/mhernand" target="_blank">Prof. Manuel Enrique Hernandez</a> · <a href="https://www.maxinehe.com/" target="_blank">Maxine He, Ph.D</a> (<a href="https://publish.illinois.edu/human-dynamics-and-controls-lab/" target="_blank">Human Dynamics and Controls Lab</a>)
+        </div>
+        <ul>
+          <li>Collected human EEG and ECG signals in controlled experimental settings.</li>
+          <li>Preprocessed data in MATLAB and Python: filtering, artifact removal, segmentation.</li>
+          <li>Performed HRV analysis using Kubios and organized extracted features into a structured
+              dataset for machine learning.</li>
+          <li>Co-authored a conference abstract presented at the Society for Psychophysiological Study
+              Annual Meeting 2023.</li>
+        </ul>
       </div>
-      <ul>
-        <li>Collected human EEG and ECG signals in controlled experimental settings.</li>
-        <li>Preprocessed data in MATLAB and Python: filtering, artifact removal, segmentation.</li>
-        <li>Performed HRV analysis using Kubios and organized extracted features into a structured
-            dataset for machine learning.</li>
-        <li>Co-authored a conference abstract presented at the Society for Psychophysiological Study
-            Annual Meeting 2023.</li>
-      </ul>
     </div>
 
     <div class="research-item">
-      <h3>Exploring Skin Potential Signals in Electrodermal Activity — Zhejiang University</h3>
-      <div class="mentor">
-        Mentor: <a href="https://person.zju.edu.cn/leelinear" target="_blank">Prof. Yubo Li</a> (ZJU Electronix &amp; Mechanix Engineering Lab)
+      <div class="research-content">
+        <h3>Exploring Skin Potential Signals in Electrodermal Activity — Zhejiang University</h3>
+        <div class="mentor">
+          Mentor: <a href="https://person.zju.edu.cn/leelinear" target="_blank">Prof. Yubo Li</a> (ZJU Electronix &amp; Mechanix Engineering Lab)
+        </div>
+        <ul>
+          <li>Collected fasciocutaneous electrical signals from human participants and small white mice.</li>
+          <li>Built MATLAB pipelines for integration, classification, normalization, and big-data handling
+              of experimental datasets.</li>
+          <li>Extracted time-domain, frequency-domain, and nonlinear features (FFT, 1D wavelet analysis,
+              wavelet packet decomposition).</li>
+          <li>Applied machine learning to explore fascial signal–concentration relationships; published
+              findings in <em>IEEE Access</em> (2024).</li>
+        </ul>
       </div>
-      <ul>
-        <li>Collected fasciocutaneous electrical signals from human participants and small white mice.</li>
-        <li>Built MATLAB pipelines for integration, classification, normalization, and big-data handling
-            of experimental datasets.</li>
-        <li>Extracted time-domain, frequency-domain, and nonlinear features (FFT, 1D wavelet analysis,
-            wavelet packet decomposition).</li>
-        <li>Applied machine learning to explore fascial signal–concentration relationships; published
-            findings in <em>IEEE Access</em> (2024).</li>
-      </ul>
     </div>
 
   </div>
